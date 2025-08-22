@@ -53,3 +53,32 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+/* My Styles */
+
+#pass{
+  height: 150px;
+  width: 300px;
+  border: 3px solid #434343;
+  border-radius:10px;
+  background: linear-gradient(to right, #434343, #000000);
+  transition: transform .3s ease-in, box-shadow .3s ease-in;
+
+}
+
+section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* A esta animación le falta sincronización con el resto de elemento del section, para simular que la carta se esta elevando sobre la página web */
+#pass:hover{
+  transform: translateY(-17px) translateX(17px);
+  box-shadow: 17px 17px black;
+}
+
+/* Por ahora estos van a ser los estilos */
