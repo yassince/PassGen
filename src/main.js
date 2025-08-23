@@ -1,14 +1,14 @@
+import { formEvent, loadForm } from './Form/FormSetings.js';
 import './style.css'
-import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
-  <div class="app">
-    <h1 class="title">PassGen</h1>
-    <section>
-      <div id="pass"></div>
-      <button>Gen Pass<Button>
-    </section>
-  </div>
-`
+//Load From Configuration for pass
+loadForm(document.querySelector('#app'))
 
-setupCounter(document.querySelector('#counter'))
+//submit of form
+document.querySelector('form').addEventListener('submit', formEvent)
+
+if(localStorage.getItem('userPreferences')){
+
+}
+
+
