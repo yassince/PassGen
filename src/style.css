@@ -16,10 +16,35 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+header {
+  font-size: 0.5rem;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+header > nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  gap: 20px;
+  font-size: large;
+}
+
+.title{
+  text-align: center;
+  background: linear-gradient(to top, rgb(0, 0, 0), rgb(80, 78, 78));
+  border-radius: 20px;
+  padding: 10px;
+  border: 2px solid black;
+  max-width: 150px;
+
 }
 
 h1 {
@@ -28,6 +53,10 @@ h1 {
 }
 
 #app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -46,9 +75,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -56,17 +87,22 @@ button:focus-visible {
 
 /* My Styles */
 
-#pass{
+#pass {
   height: 150px;
   width: 300px;
   border: 3px solid #434343;
-  border-radius:10px;
-  background: linear-gradient(to right, #434343, #000000);
+  border-radius: 10px;
+  background: linear-gradient(to bottom, #434343, #000000);
   transition: transform .3s ease-in, box-shadow .3s ease-in;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  text-shadow: 3px 3px rgb(41, 41, 41);
 
 }
 
-section{
+section {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,9 +112,7 @@ section{
 }
 
 /* A esta animación le falta sincronización con el resto de elemento del section, para simular que la carta se esta elevando sobre la página web */
-#pass:hover{
+#pass:hover {
   transform: translateY(-17px) translateX(17px);
   box-shadow: 17px 17px black;
 }
-
-/* Por ahora estos van a ser los estilos */

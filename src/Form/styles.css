@@ -1,0 +1,58 @@
+.settings{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.properties{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 5px;
+}
+.property{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.property > input[type="checkbox"] {
+  /* Resetea los estilos por defecto del navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 25px;
+  height: 25px;
+  border: 2px solid #434343;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
+}
+
+.property > input[type="checkbox"]::before {
+  content: "✔";
+  color: white;
+  font-size: 1.2em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+}
+
+.property > input[type="checkbox"]:checked {
+  background-color: red;
+  border-color: red;
+}
+
+.property > input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
