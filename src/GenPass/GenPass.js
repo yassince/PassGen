@@ -1,29 +1,71 @@
+import { PassGen } from "../DomComponent"
+import { loadForm } from "../Form/FormSetings"
+
+//Load the aplication
+export const loadPass = (app) => {
+  app.innerHTML = PassGen
+
+  //Añadimos los eventos a los botones
+  let buttonGen = document.getElementById('genPass')
+  buttonGen.addEventListener('click', GenPassEvent)
+
+  let buttonFrom = document.getElementById('backConfig')
+  buttonFrom.addEventListener('click', getBackFrom)
+}
 
 /**
  * Function that create a random Pass
  * @returns random Pass
  */
-function createPass() {
+function createPass(userPreferences) {
+  //Creamos el array para añadir los char que nos hagan falta
+  let arrayChars
+
+  //Simbolos
+  if (userPreferences.charSymbol) {
+    arrayChars = Array.from({ length: 64 - 33 + 1 }, (_, i) => String.fromCharCode(33 + i))
+    arrayChars.splice(15, 10)//Eliminamos los números del array de números
+  }
+
+  //Números
+  if (userPreferences.charNumber) {
+    arrayChars = arrayChars.concat(Array.from({ length: 57 - 48 + 1 }, (_, i) => String.fromCharCode(48 + i)))
+  }
+
+  //Mayusculas
+  if (userPreferences.charUpperCase) {
+    arrayChars = arrayChars.concat(Array.from({ length: 90 - 65 + 1 }, (_, i) => String.fromCharCode(65 + i)))
+  }
+
+  //Minusculas
+  if (userPreferences.charLowerCase) {
+    arrayChars = arrayChars.concat(Array.from({ length: 122 - 97 + 1 }, (_, i) => String.fromCharCode(97 + i)))
+  }
+
   let result = ""
-  for (let i = 0; i < userPreferences.longitud; i++) {
-    let num = getNumBetween(33, 126)
-    result = result.concat(String.fromCharCode(num))
+  for (let i = 0; i < userPreferences.length; i++) {
+    let num = Math.floor(Math.random() * arrayChars.length)
+    result += arrayChars[num]
   }
 
   return result
 }
 
+//Event for gen button.
+const GenPassEvent = (e) => {
+  let userPreferences = JSON.parse(localStorage.getItem('userPreferences'))
+  document.querySelector("#pass").innerHTML = createPass(userPreferences);
+}
 
-//2. Añadir el evento del click al boton
-document.getElementsByTagName('button')[0].addEventListener('click', (e) => {
-  let genPass = createPass();
-  PASS.innerHTML = genPass;
-})
+//Event for get back to form Configuration
+const getBackFrom = (e) => {
+  localStorage.removeItem('userPreferences')
+  loadForm(document.getElementById('app'))
+}
 
 
 
-
-//3. Method that return a num between 2 numbers
+//3. Method that return a num between 2 numbers //hay que mirarlo bien
 const getNumBetween = (num1, num2) => {
   let min = Math.ceil(num1)
   let max = Math.floor(num2)
