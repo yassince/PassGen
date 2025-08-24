@@ -1,14 +1,15 @@
 import { formEvent, loadForm } from './Form/FormSetings.js';
+import { loadPass } from './GenPass/GenPass.js';
 import './style.css'
 
-//Load From Configuration for pass
-loadForm(document.querySelector('#app'))
-
-//submit of form
-document.querySelector('form').addEventListener('submit', formEvent)
-
+const app = document.querySelector('#app');
+ 
 if(localStorage.getItem('userPreferences')){
-
+    // Si ya existen preferencias, muestra la UI de la contraseña directamente.
+    loadPass(app);
+} else {
+    // De lo contrario, muestra el formulario de configuración y añade el listener.
+    loadForm(app);
+    const form = document.querySelector('#app form');
+    form.addEventListener('submit', formEvent);
 }
-
-
