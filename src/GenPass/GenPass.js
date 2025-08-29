@@ -1,6 +1,7 @@
 import { PassGen } from "../DomComponent"
 import { loadForm } from "../Form/FormSetings"
 
+
 //Load the aplication
 export const loadPass = (app) => {
   app.innerHTML = PassGen
@@ -44,7 +45,7 @@ function createPass(userPreferences) {
 
   let result = ""
   for (let i = 0; i < userPreferences.length; i++) {
-    let num = Math.floor(Math.random() * arrayChars.length)
+    let num = getRandomInt(arrayChars.length)
     result += arrayChars[num]
   }
 
@@ -71,4 +72,11 @@ const getNumBetween = (num1, num2) => {
   let max = Math.floor(num2)
 
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+
+const getRandomInt = (max) => {
+  const array = new Uint32Array(1) //genera un número entero de 32 bits (2 millornes de números)
+  window.crypto.getRandomValues(array)
+  return array[0] % max;
 }
