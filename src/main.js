@@ -1,17 +1,18 @@
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
-  <div class="flex items-center border-2 gap-10 border-black justify-center p-6 flex-col">
-    <h1 class="text-3xl font-bold">Password Generator</h1>
+  <div class="flex items-center flex-col justify-center border-2 gap-12 p-10 rounded-[60px] shadow-xl/40 bg-purple-900/40 backdrop-blur-3xl shadow-amber-50 opacity-75 text-blue-400">
+    <h1 class="text-5xl font-bold text-shadow-lg/40 text-shadow-black">Password Generator</h1>
+    <span class="italic">Safe and fast, built to last.</span>
     <section class="min-h-10 min-w-3xs">
-      <div class="min-h-10 min-w-xl border border-black flex justify-around p-6">
-        <span id="pass" class="">Here will be the password</span>
+      <div class="lg:min-h-10 min-w-xl border border-black flex justify-around p-6">
+        <span id="pass" class="w-2xs">Here will be the password</span>
         <section class="flex gap-4">
           <button>Copy</button>
           <button>ReGen</button>
         </section>
       </div>
-      <div class="min-h-6 min-w-auto border border-b-2 rounded-b-2xl text-center">There will be the feedback message</div>
+      <div class="min-h-6 min-w-auto border border-b-2 rounded-b-2xl text-center p-1">There will be the feedback message</div>
     </section>
     <section>
       <from class="flex flex-col gap-6 justify-start border-2 border-red-500 md:min-w-xl">
