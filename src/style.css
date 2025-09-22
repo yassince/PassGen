@@ -1,10 +1,23 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: light dark;
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+/* Animation for theme changing */
+.bg-transition {
+    @apply h-screen w-screen relative;
 }
-body {
-  margin: 0;
-  color: light-dark(#333b3c, #efefec);
-  background-color: light-dark(#efedea, #1b1f1c);
+
+.bg-transition::before{
+    content: '';
+    @apply absolute inset-0 transition-opacity duration-500 ease-in-out;
+    background-image: url("/background/backgr_dark.webp") ;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    
+}
+
+.bg-transition.dark::before{
+    opacity: 1;
 }
