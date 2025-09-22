@@ -1,4 +1,5 @@
 import './style.css'
+import { toggleTheme } from './utils/utils'
 
 document.querySelector('#app').innerHTML = `
   <div class="flex items-center flex-col justify-center gap-12 p-10 rounded-[60px] bg-gray-900/20 backdrop-blur-3xl  shadow-xl/40 shadow-gray-700 text-blue-300">
@@ -48,11 +49,5 @@ document.querySelector('#app').innerHTML = `
   </div>
 `
 
-
-let buton = document.getElementById("toggle");
-buton.addEventListener('click', () => {
-  let main = document.getElementsByTagName("main")[0]
-  document.body.classList.toggle("dark")
-  console.log(document.body.classList);
-  
-})
+//event for theme toggle
+document.getElementById("toggle").addEventListener("click", toggleTheme)
