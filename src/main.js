@@ -22,22 +22,22 @@ document.querySelector('#app').innerHTML = `
           <input class="col-span-2" type="range"/>
         </div>
 
-        <div class="p-6 flex justify-between">
+        <div class="p-6 flex justify-between bg-orange-300/20 dark:bg-gray-400/40 transition-colors duration-500 rounded-2xl">
           <label for="length">Include UpperCase Letter</label>
           <input type="checkbox"/>
         </div>
         
-        <div class="p-6 flex justify-between">
+        <div class="p-6 flex justify-between bg-orange-300/20 dark:bg-gray-400/40 transition-colors duration-500 rounded-2xl">
           <label for="length">Include LowerCase Letter</label>
           <input type="checkbox"/>
         </div>
 
-        <div class="p-6 flex justify-between">
+        <div class="p-6 flex justify-between bg-orange-300/20 dark:bg-gray-400/40 transition-colors duration-500 rounded-2xl">
           <label for="length">Include Symbol</label>
           <input type="checkbox"/>
         </div>
 
-        <div class="p-6 flex justify-between">
+        <div class="p-6 flex justify-between bg-orange-300/20 dark:bg-gray-400/40 transition-colors duration-500 rounded-2xl">
           <label for="length">Include Numbers</label>
           <input type="checkbox"/>
         </div>
@@ -54,5 +54,5 @@ buton.addEventListener('click', () => {
   let main = document.getElementsByTagName("main")[0]
   document.body.classList.toggle("dark")
   console.log(document.body.classList);
-  
+
 })
