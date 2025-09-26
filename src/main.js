@@ -3,16 +3,19 @@ import { fromEvent, styleRange, toggleTheme } from './utils/utils'
 import { Char } from './utils/Char'
 
 document.querySelector('#app').innerHTML = `
-  <div class="flex items-center flex-col justify-center gap-12 p-10 rounded-[60px] bg-gray-900/20 backdrop-blur-3xl shadow-xl/40 shadow-gray-700 font-sans text-white dark:text-blue-300 transition-all duration-500">
-    <section class="theme self-end">
+  <div class="flex items-center flex-col justify-center gap-12 p-8 rounded-[60px] bg-gray-900/20 backdrop-blur-3xl shadow-xl/40 shadow-gray-700 font-sans text-white dark:text-blue-300 transition-all duration-500">
+    <section class="theme self-end flex flex-row border-2 border-red-400">
       <label class="italic text-xl">Toggle Theme</label>
-      <button id="toggle" class="hover:scale-75 p-4 ml-6 rounded-3xl transition-transform cursor-pointer animate-fadeIn self-end"> toggle theme</button>
+      <button id="toggle">cambiar</button>
+      <div class="body_toggle_button ml-4 min-w-16 min-h-6 border-2 bg-blue-950/40 rounded-2xl">
+        <div class="toggle_button h-6 w-6 rounded-full bg-black">
+      </div>
     </section>
 
 
     <h1 class="text-5xl font-bold text-shadow-lg/40 text-shadow-black">Password Generator</h1>
     <span class="italic font-bold dark:text-shadow-lg text-shadow-gray-500 text-xl transition-all">Safe and fast, built to last.</span>
-    <section class="min-h-10 min-w-3xs bg-orange-300/40 dark:bg-gray-500/40 shadow-lg shadow-orange-500/20 dark:shadow-gray-500/70 rounded-2xl transition-all duration-500">
+    <section class="min-h-10 min-w-3xs bg-orange-300/40 dark:bg-gray-500/40 rounded-2xl transition-all duration-500">
       <div class="lg:min-h-10 min-w-xl flex justify-around p-6">
         <span id="pass" class="w-auto text-2xl font-bold">Here will be the password</span>
         <section class="flex gap-4">
@@ -20,17 +23,17 @@ document.querySelector('#app').innerHTML = `
           <button class="p-2 rounded-2xl bg-orange-300/40 dark:bg-blue-300/40 text-white cursor-pointer hover:scale-90 transition-all">ReGen</button>
         </section>
       </div>
-      <div class="min-h-6 min-w-auto border border-b-2 rounded-b-2xl text-center p-2">There will be the feedback message</div>
+      <div class="min-w-auto border-b-2 rounded-b-2xl text-center p-2">There will be the feedback message</div>
     </section>
     <section>
-      <form class="flex flex-col gap-4 justify-start md:min-w-xl">
-        <div class="grid grid-cols-2 justify-center p-6 gap-4 text-xl">
+      <form class="grid grid-cols-2 xl:flex xl:flex-col gap-4 justify-start w-auto " >
+        <div class="grid col-span-2 w-full xl:w-auto xl:grid-cols-2 justify-center p-6 gap-4 text-xl">
           <label for="length">Length</label>
           <input type="number" value=12 min=8 max=21 id="length" readonly class="text-right font-bold">
           <input class="col-span-2" type="range" min="8" max="21" value="12" class="appearance-none w-100 h-1" id="range"/>
         </div>
 
-        <div class="p-6 flex justify-between bg-orange-300/20 dark:bg-gray-400/40 transition-colors duration-500 rounded-2xl">
+        <div class="p-6 flex md:gap-2 justify-between bg-orange-300/20 dark:bg-gray-400/40 transition-colors duration-500 rounded-2xl">
           <label for="length">Include UpperCase Letter</label>
           <input type="checkbox" name="upperCase" checked />
         </div>
