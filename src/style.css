@@ -8,16 +8,83 @@
     @apply h-screen w-screen relative;
 }
 
-.bg-transition::before{
+.bg-transition::before {
     content: '';
     @apply absolute inset-0 transition-opacity duration-500 ease-in-out;
-    background-image: url("/background/backgr_dark.webp") ;
+    background-image: url("/background/backgr_dark.webp");
     background-size: cover;
     background-position: center;
     opacity: 0;
-    
+
 }
 
-.bg-transition.dark::before{
+.bg-transition.dark::before {
     opacity: 1;
+}
+
+/* Styles for range input */
+#range {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+}
+
+#range::-webkit-slider-runnable-track {
+    border-radius: 2rem;
+    height: .5rem;
+    background: linear-gradient(to right,
+            #4a4a4a var(--value), #ffffff var(--value)
+        );
+}
+
+#range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(66, 63, 63);
+    border-radius: 50%;
+    cursor: pointer;
+
+    margin-top: calc((.5rem - 2rem) / 2);
+}
+
+#range::-moz-range-track {
+    -moz-appearance: none;
+
+    background-color: white;
+    border-radius: 2rem;
+    height: .5rem;
+}
+
+#range::-moz-range-thumb {
+    -webkit-appearance: none;
+
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(66, 63, 63);
+    border-radius: 50%;
+    cursor: pointer;
+
+    margin-top: calc((.5rem - 2rem) / 2);
+}
+
+/* Styles for checkbox input */
+input[type="checkbox"]{
+    -webkit-appearance: none;
+
+    border: 2px solid rgba(255, 153, 0, 1);
+    opacity: .7;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 10px;
+    padding: 5px;
+    @apply dark:border-gray-900 transition-all duration-500 cursor-pointer ease-in
+}
+
+input[type="checkbox"]:checked{
+    background-color: rgba(255, 153, 0, 1);
+    border: none;
+
+    @apply dark:bg-gray-900
 }
