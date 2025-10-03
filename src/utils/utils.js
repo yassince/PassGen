@@ -1,3 +1,5 @@
+import { updatePass } from "./password";
+
 /* body of the program */
 const body = `
 <div class="flex items-center flex-col justify-center gap-12 p-8 rounded-[60px] bg-gray-900/20 backdrop-blur-3xl shadow-xl/40 shadow-gray-700 font-sans text-white dark:text-blue-300 transition-all duration-500"> 
@@ -14,10 +16,10 @@ const body = `
     
     <section class="min-h-10 min-w-3xs bg-orange-300/40 dark:bg-gray-500/40 rounded-2xl transition-all duration-500">
       <div class="lg:min-h-10 min-w-xl flex justify-around p-6">
-        <span id="pass" class="w-auto text-2xl font-bold">Here will be the password</span>
+        <span id="pass" class="min-w-2xs text-center text-2xl font-bold cursor-pointer">Here will be the password</span>
         <section class="flex gap-4">
-          <button class="p-2 rounded-2xl bg-[#C78B45] dark:bg-blue-300/40 text-white cursor-pointer hover:scale-90 transition-all">Copy</button>
-          <button class="p-2 rounded-2xl bg-[#C78B45] dark:bg-blue-300/40 text-white cursor-pointer hover:scale-90 transition-all">ReGen</button>
+          <button id="copy" class="p-2 rounded-2xl bg-[#C78B45] dark:bg-blue-300/40 text-white cursor-pointer hover:scale-90 transition-all">Copy</button>
+          <button id="regen" class="p-2 rounded-2xl bg-[#C78B45] dark:bg-blue-300/40 text-white cursor-pointer hover:scale-90 transition-all">ReGen</button>
         </section>
       </div>
       <div class="min-w-auto rounded-b-2xl text-center p-2">There will be the feedback message</div>
@@ -80,10 +82,17 @@ export const resizeDisplay = () => {
     document.getElementById("range").addEventListener('input', styleRange)
     document.getElementById("range").dispatchEvent(new Event('input'));
 
+    //copy and regen buttons
+    document.getElementById('regen').addEventListener('click', triggerEventFrom)
+    document.getElementById('copy').addEventListener('click', copyClipboard)
+    document.getElementById('pass').addEventListener('click', copyClipboard)
+
+
     document.getElementsByClassName("body_toggle_button")[0].addEventListener("click", (e) => {
       document.body.classList.toggle("dark")
       e.target.classList.toggle("activate")
     })
+    triggerEventFrom()
   } else {
     /* Display size less than md */
     document.querySelector("#app").innerHTML = "this page is not for you, sorry ;("
@@ -107,10 +116,9 @@ export const fromEvent = (e) => {
   const inputChange = e.target.name;
   let userPreferences = JSON.parse(localStorage.getItem('userPreferences'))
 
-  if(inputChange === "range"){
+  if (inputChange === "range") {
     userPreferences.length = Number(e.target.value)
-  }else{
-
+  } else {
     /* TODO: comprobar cuantos checkbox estan en true (MINIMO 2) */
     userPreferences[inputChange] = e.target.checked
 
@@ -118,7 +126,8 @@ export const fromEvent = (e) => {
 
   localStorage.setItem('userPreferences', JSON.stringify(userPreferences))
 
-  /* updatePass() function de password.js */
+  const password = updatePass(userPreferences);
+  setPassToWeb(password)
 }
 
 /**
@@ -155,4 +164,27 @@ function createUserPreferences() {
   }
 
   localStorage.setItem('userPreferences', JSON.stringify(userPreferences))
+}
+
+/**
+ * set password into pass element 
+ * @param {*} pass 
+ */
+const setPassToWeb = (pass) => {
+  document.getElementById("pass").innerHTML = pass
+
+}
+
+/**
+ * That function trigger the event of form to regen a new pass
+ */
+function triggerEventFrom() {
+  const event = new Event('change', { bubbles: true })
+  let form = document.getElementsByTagName("form")[0];
+  form.dispatchEvent(event)
+}
+
+function copyClipboard(e) {
+  navigator.clipboard.writeText(document.getElementById('pass').innerText)
+  alert('Contraseña copiada ;)')
 }
