@@ -1,13 +1,13 @@
 /**
  * Little class for obtaining the necesary char
  */
-export class Char {
+class Char {
     get upperCase() {
-        return Array.from({ length: 90 - 65 + 1 }, (_, i) => String.fromCharCode(65 + i) )
+        return Array.from({ length: 90 - 65 + 1 }, (_, i) => String.fromCharCode(65 + i))
     }
 
     get lowerCase() {
-        return Array.from({ length: 122 - 97 + 1 }, (_, i) => String.fromCharCode(97 + i) )
+        return Array.from({ length: 122 - 97 + 1 }, (_, i) => String.fromCharCode(97 + i))
     }
 
     get symbol() {
@@ -28,3 +28,6 @@ export class Char {
         return Array.from({ length: 57 - 48 + 1 }, (_, i) => String.fromCharCode(48 + i) )
     }
 }
+
+
+export default Char;
