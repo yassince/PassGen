@@ -119,4 +119,15 @@ input[type="checkbox"]:checked{
     @apply bg-gray-500
 }
 
-/* TODO: Hacer que el range cambie de color con el theme, y ponerse fuerte con la logica el programa */
+/* Styles for feedback message */
+.weakPass{
+    background-color: #ff4d4d;
+}
+
+.mediumPass{
+    background-color: #c9a51498;
+    
+}
+.strongPass{
+    background-color: #2bc22ba6;
+}
