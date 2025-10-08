@@ -17,11 +17,14 @@ Y una vez instalado las dependencias necesarias, solo faltaria levantar el sevri
 `npm run dev`
 
 ## 🌟 Cómo usar
+### 1. bloque
 El uso de web es es facil, consta de dos partes, la primera es el bloque donde se muestra la contraseña, hay dos botones de control (copiar, regenerar contraseña) y por último aparece un mensaje de feedback para mostarle al usuario la fuerza de la contraseña
 ![Foto del primer bloque de la web](/docs/screenShoot-part1.png)
-
+---
+### 2. bloque
 Para modificar la contraseña tenemos el segundo bloque donde podemos modificar la longitud e añadir grupos de caracteres (mayusculas, minusculas, simbolo, numeros) como se muestra en la imagen
 ![Foto del segundo bloque de la web](/docs/screenShoot-part2.png)
+---
 marcas la opciones que condideres y la longitud que consideres necesario para la creación de la contraseña, y la web generará la contraseña por ti, y la configuración que seleccionarás se guarda automaticamente por lo tanto cuando vuelva a recargar la página se carga la configuración de la ultima vez se visito la página.
 
 ## 🧑‍💻 Autor
