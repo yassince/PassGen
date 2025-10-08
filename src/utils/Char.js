@@ -11,16 +11,9 @@ class Char {
     }
 
     get symbol() {
-        let symbol = Array.from({ length: 126 - 33 + 1 }, (_, i) => String.fromCharCode(33 + i))
-
-        //Remove the number
-        symbol.splice(15, 10)
-
-        //Remove upper char
-        symbol.splice(22, 26)
-
-        //Remove lower char
-        symbol.splice(28, 26)
+        /* The special characters that are commonly used in passwords */
+        let symbol = ['! @ # $ % ^ & * ( ) - _ + = , . ?']
+        symbol = symbol.join("").split(" ")
         return symbol
     }
 
@@ -28,6 +21,5 @@ class Char {
         return Array.from({ length: 57 - 48 + 1 }, (_, i) => String.fromCharCode(48 + i) )
     }
 }
-
 
 export default Char;
